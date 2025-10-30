@@ -127,7 +127,7 @@
   </head>
   <body>
     <div class="main-wrapper">
-      <!-- Hero Section -->
+      
       <div class="hero">
         <h1>Take the Climate Action Pledge!</h1>
         <p>
@@ -136,7 +136,7 @@
         <button onclick="showPledgeForm()">Take the Pledge</button>
       </div>
 
-      <!-- Live Metrics -->
+      
       <div class="metrics" id="metrics">
         <div class="metric">
           <strong id="countTotal">0</strong> Total Pledges
@@ -147,11 +147,10 @@
         </div>
       </div>
       <div class="impact-section">
-        <b>Every pledge counts!</b> Even small actions—when multiplied—shape a
-        better world for us all.
+        <b>Every pledge counts!</b> Even small actions—when multiplied—shape a better world for us all.
       </div>
 
-      <!-- Pledge Form -->
+    
       <form class="pledge-form" id="pledgeForm" onsubmit="submitPledge(event)">
         <label>Name*</label> <input type="text" id="name" required />
         <label>Email*</label> <input type="email" id="email" required />
@@ -195,7 +194,7 @@
         </div>
       </form>
 
-      <!-- Certificate -->
+      
       <div class="certificate" id="certificate">
         <h3>Certificate of Climate Commitment</h3>
         <p id="certText"></p>
@@ -204,16 +203,15 @@
         <button onclick="closeCertificate()">OK</button>
       </div>
 
-      <!-- Public Pledge Wall -->
+      
       <div class="pledge-wall">
         <b>Latest Pledges</b>
         <div id="wall"></div>
       </div>
 
-      <!-- Privacy Note -->
+      
       <div class="privacy-note">
-        <b>Note:</b> Emails and mobiles are only used for validation. They are
-        never displayed publicly.
+        <b>Note:</b> Emails and mobiles are only used for validation. They are never displayed publicly.
       </div>
     </div>
 
@@ -238,7 +236,7 @@
           if (document.getElementById(id).checked)
             commitments.push(document.getElementById(id).value);
         });
-        // "Back-end": add to dummy array
+        
         const pledge = {
           id: "PLG" + ("" + Math.floor(Math.random() * 1e6)).padStart(6, "0"),
           name,
@@ -247,10 +245,10 @@
           commitments: commitments.join(", "),
           date: new Date().toLocaleDateString(),
         };
-        pledges.unshift(pledge); // Add newest to top
+        pledges.unshift(pledge);
         updateMetrics();
         updateWall();
-        // Show certificate
+        
         document.getElementById("pledgeForm").reset();
         document.getElementById("pledgeForm").style.display = "none";
         document.getElementById("certificate").style.display = "block";
@@ -277,8 +275,7 @@
         document.getElementById("countStudents").innerText = pledges.filter(
           (p) => p.profile === "Student"
         ).length;
-        document.getElementById("countProfessionals").innerText =
-          pledges.filter((p) => p.profile === "Professional").length;
+        document.getElementById("countProfessionals").innerText = pledges.filter((p) => p.profile === "Professional").length;
       }
       function updateWall() {
         const wallElem = document.getElementById("wall");
@@ -293,3 +290,4 @@
     </script>
   </body>
 </html>
+
